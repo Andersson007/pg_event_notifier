@@ -253,7 +253,7 @@ if __name__ == '__main__':
     # because a new log file will be parsed:
     if date != F_TIME:
         f = open(TMP_FILE, 'w')
-        f.write('0,0,%s,%s' % (F_TIME, str(offset)))
+        f.write('0,0,%s,0' % F_TIME)
         f.close()
         last_err_num = 0
         attempts = 0
