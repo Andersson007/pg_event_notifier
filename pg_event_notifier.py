@@ -1,9 +1,9 @@
 #!/usr/bin/python3
 # Name: pg_event_notifier.py
 # Author: Andrey Klychkov (aaklychkov@mail.ru)
-# Version: 1.2
+# Version: 1.2.1
 # Licence: Copyleft free software
-# Date: 2018-03-16
+# Date: 2018-07-12
 #
 # **IMPORTANT** Log files must consist of an YYYY-MM-DD string
 # as a variable part of its names and be in the csv format.
@@ -162,9 +162,6 @@ if __name__ == '__main__':
         last_offset = int(t[3])
         break
 
-    if not args.CONTIN:
-        last_offset = 0
-
     # Declare dicts for storing events:
     FATAL = {}
     ERROR = {}
@@ -193,7 +190,10 @@ if __name__ == '__main__':
     # Fill event dicts for suitable events
     #
     f = open(LOG_PATH, 'r')
-    f.seek(last_offset, 0)
+    if not args.CONTIN:
+        f.seek(0)
+    else:
+        f.seek(last_offset, 0)
 
     if args.FILTER:
         t = args.FILTER.split(',')

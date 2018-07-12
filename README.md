@@ -4,9 +4,9 @@ and sends mail notification if events has been found.
 
 Author: Andrey Klychkov (aaklychkov@mail.ru)
 
-Version: 1.2
+Version: 1.2.1
 
-Date: 2018-03-16
+Date: 2018-07-12
 
 Licence: Copyleft free software
 
